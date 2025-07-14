@@ -1,0 +1,497 @@
+/* Variables de Colores Pastel */
+:root {
+    --color-pink-light: #E9ABC8;
+    /* Rosa muy claro */
+    --color-pink-medium: #f8bbd0;
+    /* Rosa medio */
+    --color-pink-dark: #ec407a;
+    /* Rosa oscuro para textos */
+    --color-orange-light: #ffe0b2;
+    /* Naranja muy claro / Melocotón */
+    --color-orange-dark: #ffb74d;
+    /* Naranja medio */
+    --color-text-dark: #4a4a4a;
+    --color-text-light: #fcfcfc;
+    --color-header-bg: #ffebee;
+    /* Fondo del header superior */
+    --color-button-donate: #ff80ab;
+    /* Rosa botón Donar */
+    --header-height: 80px;
+    /* Define la altura de tu header fijo para el offset */
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Evitar scroll horizontal por si acaso */
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url(/img/fondo-lindo.jpeg);
+}
+
+/* Scroll Suave con CSS */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fondo con Degradado */
+.hero-background {
+    width: 100%;
+    height: 100vh;
+    /* Ocupa toda la altura de la ventana */
+    background: linear-gradient(to right, #E9ABC8, #C5D5E1);
+    /* Degredado de rosa a naranja/melocotón */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Para que el contenido esté por encima */
+}
+
+/* Contenedor Principal para el contenido */
+.main-container {
+    position: relative;
+    z-index: 1;
+    /* Asegura que el contenido esté sobre el fondo */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Superior (barra de navegación) */
+.top-header {
+    background-color: var(--color-header-bg);
+    /* Fondo rosa muy claro */
+    /* AUMENTADO: Añadir más padding vertical para despegado */
+    padding: 10px 0;
+    /* Ajustado de 15px 0 a 10px 0, y el height controlará el resto del espacio */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: var(--header-height);
+    /* Mantiene la altura total del header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.top-header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-pink-dark);
+    text-decoration: none;
+    margin-left: 20px;
+    display: flex;
+    /* Para alinear imagen y texto */
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre imagen y texto */
+}
+
+.top-header .logo img {
+    height: 100px;
+    /* Tamaño del logo: ajusta esto para hacerlo más pequeño o más grande */
+    width: auto;
+    /* Mantiene la proporción de la imagen */
+}
+
+/* DESKTOP: Navegación siempre visible por defecto */
+.top-header nav {
+    display: flex;
+    /* Asegura que la navegación sea un flex container en desktop */
+    /* Otros estilos para nav en desktop, si los hay */
+}
+
+.top-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* Por defecto, en escritorio, los ítems son en línea */
+}
+
+.top-header nav ul li {
+    margin-right: 30px;
+    /* Espacio entre los ítems del menú */
+}
+
+.top-header nav ul li a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1em;
+    /* Asegurar un tamaño de fuente claro para los enlaces */
+}
+
+.top-header nav ul li a:hover {
+    color: var(--color-pink-dark);
+}
+
+.top-header .donate-button {
+    background-color: var(--color-button-donate);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+}
+
+.top-header .donate-button:hover {
+    background-color: #e91e63;
+    /* Rosa más oscuro al pasar el ratón */
+}
+
+/* Ajuste para el contenido que está debajo del header fijo */
+body {
+    padding-top: var(--header-height);
+    /* Añade un padding superior igual a la altura del header */
+}
+
+/* Botón de hamburguesa - Por defecto oculto en escritorio */
+.hamburger-menu {
+    display: none;
+    /* Ocultar por defecto en escritorio */
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: var(--color-pink-dark);
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 20px;
+    z-index: 101;
+    /* Asegura que esté por encima del menú */
+}
+
+/* Sección Hero / Banner Principal */
+.hero-section {
+    text-align: center;
+    padding: 150px 0;
+    color: white;
+    position: relative;
+}
+
+.hero-section h1 {
+    font-family: 'Georgia', serif;
+    font-size: 4.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: var(--color-text-light);
+}
+
+.hero-section p {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: var(--color-text-light);
+}
+
+.hero-section .est {
+    font-size: 1.1em;
+    opacity: 0.9;
+    color: var(--color-text-light);
+}
+
+/* Barra Lateral de Redes Sociales */
+.social-sidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 5;
+}
+
+
+/* Contenido Principal (después del hero) */
+.content-sections {
+    background-color: white;
+    padding: 50px 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+    border-radius: 15px 15px 0 0;
+}
+
+.info-block {
+    background-color: #fce4ec;
+    /* Rosa pastel muy suave */
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    scroll-margin-top: var(--header-height);
+}
+
+.info-block h2 {
+    color: var(--color-pink-dark);
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.info-block p,
+.info-block ul {
+    color: var(--color-text-dark);
+    font-size: 1.1em;
+}
+
+.info-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-block ul li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%23ff80ab"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat left 8px;
+    /* Icono de check rosa */
+    background-size: 20px 20px;
+    padding-left: 30px;
+    margin-bottom: 12px;
+}
+
+/* Sección de Videos/Imágenes */
+.media-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.media-item {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.media-item img,
+.media-item video,
+.media-item iframe {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.media-item h3 {
+    color: var(--color-pink-dark);
+    margin-top: 15px;
+    font-size: 1.4em;
+}
+
+.media-item p {
+    padding: 0 15px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Pie de Página */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--color-header-bg);
+    color: var(--color-text-dark);
+    font-size: 0.9em;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ======================================= */
+/* MEDIA QUERIES para Responsividad (Celular) */
+/* ======================================= */
+@media (max-width: 768px) {
+    .top-header {
+        flex-direction: row;
+        /* Mantener logo y botón en línea */
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        height: var(--header-height);
+        /* Mantener altura fija */
+    }
+
+    .top-header .logo {
+        margin-left: 0;
+        /* Eliminar margen izquierdo para centrar mejor en móvil */
+    }
+
+    .top-header nav {
+        display: none;
+        /* Ocultar el menú de navegación por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        /* Posicionar el menú absoluto */
+        top: var(--header-height);
+        /* Debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-header-bg);
+        /* Mismo fondo que el header */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 99;
+        /* Debajo del header pero encima del contenido */
+    }
+
+    .top-header nav ul {
+        flex-direction: column;
+        /* Ítems de la lista en columna */
+        width: 100%;
+        text-align: center;
+    }
+
+    .top-header nav ul li {
+        margin: 15px 0;
+        /* Espacio vertical entre ítems */
+    }
+
+    .top-header nav ul li a {
+        font-size: 1.2em;
+        /* Hacer los links más grandes */
+    }
+
+    /* Mostrar el botón de hamburguesa en móvil */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Estilo para el menú cuando está activo (se muestra) */
+    .top-header nav.nav-active {
+        display: flex;
+        /* Mostrar el menú */
+    }
+
+    .top-header .donate-button.desktop-only {
+        /* Específico para el botón de escritorio */
+        display: none;
+        /* Ocultar el botón "Inicio" en el header principal en móvil */
+    }
+
+    /* Si quieres mover el botón "Inicio" dentro del menú hamburguesa */
+    .top-header nav.nav-active .donate-button-mobile {
+        display: block;
+        /* Muestra el botón solo cuando el menú está abierto */
+        margin-top: 20px;
+        background-color: var(--color-button-donate);
+        color: rgb(71, 71, 71);
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        /* Para centrarlo si es necesario */
+    }
+
+    .top-header nav.nav-active .donate-button-mobile:hover {
+        background-color: #e91e63;
+    }
+
+
+    body {
+        padding-top: var(--header-height);
+        /* Mantener padding superior */
+    }
+
+    .hero-section {
+        padding: 80px 0;
+        /* Ajustar padding para pantallas más pequeñas */
+    }
+
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-section p {
+        font-size: 1.1em;
+    }
+
+    /* Barra social en móvil - abajo y centrada */
+    .social-sidebar {
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: 25px;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px 20px;
+        border-radius: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-sidebar a {
+        font-size: 1.8em;
+    }
+
+    .media-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .media-item {
+        width: 90%;
+    }
+
+    .info-block {
+        padding: 20px;
+        /* Reducir padding en bloques de info */
+    }
+}
+
+.social-sidebar a {
+    color: #fce4ec;
+    /* Color de WhatsApp */
+    font-size: 2.2em;
+    /* Un poco más grande para que destaque solo uno */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-sidebar a:hover {
+    transform: scale(1.2);
+    color: #C5D5E1;
+    /* Un verde más oscuro al pasar el ratón */
+}
+
+/* Estilos en tu estilos.css */
+
+.top-header .logo {
+    font-size: 1.8em;
+    /* Puedes ajustar este tamaño si el texto aún es grande */
+    font-weight: bold;
+    color: var(--color-pink-dark);
+    text-decoration: none;
+    margin-left: 20px;
+    display: flex;
+    /* Convierte el enlace en un flex container */
+    align-items: center;
+    /* Centra verticalmente los elementos (imagen y texto) */
+    gap: 10px;
+    /* Añade un espacio entre la imagen y el texto */
+}
+
+.top-header .logo img {
+    height: 40px;
+    /* Tamaño del logo: ajusta esto para hacerlo más pequeño o más grande */
+    width: auto;
+    /* Mantiene la proporción de la imagen */
+    /* vertical-align: middle; ya no es tan necesario con display: flex y align-items: center */
+}
