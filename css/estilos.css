@@ -265,42 +265,61 @@ body {
 /* Sección de Videos/Imágenes */
 .media-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* CAMBIO: Cambiado de space-around a center para un centrado más estricto */
     gap: 30px;
     margin-top: 40px;
     flex-wrap: wrap;
 }
 
 .media-item {
-    flex: 1;
-    min-width: 300px;
+    flex: 1 1 300px; /* CAMBIO: Usar flex-basis para dar un tamaño base y permitir el crecimiento/reducción */
+    max-width: calc(50% - 15px); /* CAMBIO: Asegura dos columnas con espacio entre ellas en pantallas grandes */
+    min-width: 280px; /* CAMBIO: Establece un mínimo razonable para evitar que se achiquen demasiado en móvil */
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    
+    /* CAMBIO: Añadido para centrar el contenido interno de cada media-item */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente (video, img, h3, p) */
+    text-align: center; /* Asegura que el texto también esté centrado */
+    
     padding-bottom: 20px;
+    box-sizing: border-box; /* IMPORTANTE: Asegura que el padding no añada al ancho total */
 }
 
 .media-item img,
-.media-item video,
-.media-item iframe {
+.media-item video {
     width: 100%;
     height: 250px;
     object-fit: cover;
     display: block;
+    margin-bottom: 10px; /* Espacio entre el medio y el título/texto */
+}
+
+.media-item iframe {
+    width: 100%;
+    height: 250px;
+    display: block; /* IMPORTANTE: Permite que margin: auto funcione */
+    margin: 0 auto 10px auto; /* Centra el iframe horizontalmente y añade margen inferior */
+    border: none; /* Elimina cualquier borde predeterminado del iframe */
+    /* object-fit: cover; no es tan relevante para iframes, ya que controlan su propio aspecto */
 }
 
 .media-item h3 {
     color: var(--color-pink-dark);
     margin-top: 15px;
     font-size: 1.4em;
+    text-align: center; /* Asegura que el título esté centrado */
 }
 
 .media-item p {
     padding: 0 15px;
     font-size: 0.95em;
     color: #555;
+    text-align: center; /* Asegura que el párrafo esté centrado */
 }
 
 /* Pie de Página */
@@ -448,7 +467,8 @@ footer {
     }
 
     .media-item {
-        width: 90%;
+        width: 90%; /* Ajusta el ancho en dispositivos móviles */
+        max-width: 400px; /* Limita el ancho máximo en móvil */
     }
 
     .info-block {
@@ -489,9 +509,12 @@ footer {
 }
 
 .top-header .logo img {
-    height: 40px;
-    /* Tamaño del logo: ajusta esto para hacerlo más pequeño o más grande */
+    height: 40px; /* CAMBIO: Volvimos a 40px, ya que 100px podría ser demasiado grande para un logo de header */
     width: auto;
     /* Mantiene la proporción de la imagen */
     /* vertical-align: middle; ya no es tan necesario con display: flex y align-items: center */
+}
+
+.info-block {
+    padding: 10px;
 }
